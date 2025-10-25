@@ -114,7 +114,7 @@ def main():
             else:
                 pkg = binaries[param][0][1]
                 print(_(" You can install it by typing:"), file=sys.stderr)
-                print("    urpmi %s" % pkg, file=sys.stderr)
+                print("    dnf install %s" % pkg, file=sys.stderr)
                 if show_inst_prompts:
                     res = raw_input(_('Do you want to install it? (y/N)'))
                     if sys.stdin.encoding and isinstance(res, str):
@@ -122,7 +122,7 @@ def main():
                     # any not 'y' string rejects the installation
                     res = res.lower().strip()
                     if  res == _('y'):
-                        os.system('urpmi ' + pkg)
+                        os.system('dnf install ' + pkg)
         return
         
     params = similar_words(param)
